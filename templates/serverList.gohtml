@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Server List</title>
+    <link rel="stylesheet" href="static/style.css"/>
+</head>
+<body>
+<div>
+    <h1>Server List</h1>
+    <table>
+        {{ range . }}
+            <tr><td>
+                    {{ .Name }}
+                </td><td>
+                    <form action="/deleteServer" method="get">
+                        <input type="hidden" name="id" value="{{.ID}}" />
+                        <input type="hidden" name="name" value="{{.Name}}" />
+                        <input type="submit" value="Delete" />
+                    </form>
+            </td></tr>
+        {{ else }}
+            <li>No servers yet.</li>
+        {{ end }}
+    </table>
+</div>
+<div>
+    <span>&nbsp;</span>
+    {{template "links.gohtml"}}
+</div>
+</body>
+</html>

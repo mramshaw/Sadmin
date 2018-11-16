@@ -1,0 +1,15 @@
+.dockerignore
+
+docker-compose.yml
+
+.git/
+.gitignore
+
+sql/
+
+*.swp
+
+*.yaml
+*.yml
+
+README.md

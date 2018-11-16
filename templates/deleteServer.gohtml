@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Server Entry</title>
+    <link rel="stylesheet" href="static/style.css"/>
+</head>
+<body>
+{{template "menu.gohtml"}}
+<div>
+    <h1>Delete Server Entry</h1>
+        <table><tr><td>
+                Server Name: <b>{{.Name}}</b>
+            </td><td>
+                <form action="/deleteServer" method="post">
+                    <input type="hidden" name="id" value="{{.ID}}" />
+                    <input type="hidden" name="name" value="{{.Name}}" />
+                    <input type="submit" value="Delete" />
+                </form>
+        </td></tr></table>
+{{if .NoLongerExist}}
+	<h2>This server no longer exists!</h2>
+{{end}}
+{{if .Error}}
+	<h2>There was an error!</h2>
+    <h2>{{.ErrorString}}</h2>
+{{end}}
+</body>
+</html>

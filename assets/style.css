@@ -1,0 +1,21 @@
+html, body {
+    height: 100%;
+}
+
+body, h1 {
+    background-color: lightgrey;
+}
+
+body, h1 {
+    color: navy;
+}
+
+table, th, td {
+    border: 3px solid darkgrey;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px;
+}
+

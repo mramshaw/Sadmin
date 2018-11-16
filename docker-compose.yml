@@ -1,0 +1,82 @@
+version: '2'
+
+networks:
+  servernet:
+
+services:
+
+    golang-client:
+        build: .
+        image: mramshaw4docs/golang-sadmin-client:1.11
+        networks:
+          servernet:
+            aliases:
+              - golang-client
+        depends_on:
+            - golang-server
+        ports:
+            - "8200:8200"
+              # First (external) port must be available locally
+        volumes:
+            - .:/Sadmin
+        working_dir: /Sadmin/src/Client
+        command: bash -c "sleep 20; make"
+        #command: bash -c "sleep 20; /Sadmin/compiled/admin_client"
+        links:
+            - golang-server
+        environment:
+            PORT: 8200
+            REMOTE_HOST: golang-server
+            REMOTE_PORT: 8100
+            REMOTE_AUTH_USER: remote_user
+            REMOTE_AUTH_PASSWORD: remotepass
+            AUTH_USER: auth_user
+            AUTH_PASSWORD: secret
+
+    golang-server:
+        build: .
+        image: mramshaw4docs/golang-sadmin-server:1.11
+        networks:
+          servernet:
+            aliases:
+              - golang-server
+        depends_on:
+            - mysql-backend
+        ports:
+            - "8100:8100"
+              # First (external) port must be available locally
+        volumes:
+            - .:/Sadmin
+        working_dir: /Sadmin/src/Server
+        command: bash -c "sleep 10; make"
+        #command: bash -c "sleep 10; /Sadmin/compiled/admin_server"
+        links:
+            - mysql-backend
+        environment:
+            PORT: 8100
+            MYSQL_HOST: mysql-backend
+            MYSQL_PORT: 3306
+            MYSQL_USER: sadmin_user
+            MYSQL_PASSWORD: sadminpass
+            MYSQL_DB: sadmin
+            AUTH_USER: remote_user
+            AUTH_PASSWORD: remotepass
+
+    mysql-backend:
+        image: mysql:8.0
+        networks:
+          servernet:
+            aliases:
+              - mysql-backend
+        restart: unless-stopped
+        ports:
+            - "3306:3306"
+              # First (external) port must be available locally;
+              #     /etc/init.d/mysql stop
+        volumes:
+            - ./sql/:/docker-entrypoint-initdb.d/
+        command: ["mysqld",
+                    "--require-secure-transport=ON",
+                    "--default-authentication-plugin=mysql_native_password"]
+        environment:
+            MYSQL_ROOT_PASSWORD: sadminpass

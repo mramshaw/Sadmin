@@ -1,0 +1,5 @@
+compiled/
+src/Client/coverage.html
+src/Client/coverage.txt
+src/Server/coverage.html
+src/Server/coverage.txt

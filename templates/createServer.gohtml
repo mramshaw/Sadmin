@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Server Entry</title>
+    <link rel="stylesheet" href="static/style.css"/>
+</head>
+<body>
+{{template "menu.gohtml"}}
+<div>
+    <h1>Create Server Entry</h1>
+    <form action="/createServer" method="post">
+        <span>Server Name: </span>
+        <input type="text" name="name" value="{{.Name}}" />
+        <input type="submit" value="Create" />
+    </form>
+</div>
+{{if .Invalid}}
+	<h2>Invalid server name!</h2>
+{{end}}
+{{if .Duplicate}}
+	<h2>This server already exists!</h2>
+{{end}}
+{{if .Error}}
+	<h2>There was an error!</h2>
+    <h2>{{.ErrorString}}</h2>
+{{end}}
+</body>
+</html>
