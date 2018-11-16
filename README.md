@@ -1,6 +1,14 @@
 # Sadmin
 
+[![Build status](http://travis-ci.org/mramshaw/Sadmin.svg?branch=master)](http://travis-ci.org/mramshaw/Sadmin)
+[![Coverage Status](http://codecov.io/github/mramshaw/Sadmin/coverage.svg?branch=master)](http://codecov.io/github/mramshaw/Sadmin?branch=master)
+[![Go Report Card](http://goreportcard.com/badge/github.com/mramshaw/Sadmin?style=flat-square)](http://goreportcard.com/report/github.com/mramshaw/Sadmin)
+[![GoDoc](http://godoc.org/github.com/mramshaw/Sadmin?status.svg)](http://godoc.org/github.com/mramshaw/Sadmin)
+[![GitHub release](http://img.shields.io/github/release/mramshaw/Sadmin.svg?style=flat-square)](http://github.com/mramshaw/Sadmin/releases)
+
 This is an application to securely manage co-located servers.
+
+![Architecture](images/Diagram.png)
 
 1. The administrative interface is accessed via HTTPS. 
 
