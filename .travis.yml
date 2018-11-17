@@ -1,3 +1,7 @@
+env:
+  global:
+  - GO111MODULE=on
+
 language: go
 go:
   - 1.11.x
@@ -7,7 +11,7 @@ services:
   - docker
 
 script:
-  - env GO111MODULE=on docker-compose up
+  - docker-compose up
 
 notifications:
   email: false
