@@ -129,8 +129,8 @@ Database backup & recovery requirements (frequency, etc) are still to be determi
 
 Traffic shaping, firewalling, and I.P. address filtering will not be addressed here.
 
-These are probably best left to middleware components such as Istio as these types
-of features generally do not scale well.
+These are probably best left to middleware components such as [Istio](http://istio.io/)
+as these types of features generally do not scale well.
 
 ## Operations
 
@@ -259,6 +259,7 @@ More recent versions of these components should be fine.
 
 The following items remain to be done.
 
+- [x] Travis build with Go 1.11 dependency vendoring
 - [ ] Determine requirements for Production deployment
 - [ ] Determine requirements for Database replication
 - [ ] Determine requirements for Database backup & recovery
