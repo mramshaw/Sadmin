@@ -1,0 +1,16 @@
+language: go
+go:
+  - 1.11.x
+  - tip
+
+services:
+  - docker
+
+script:
+  - docker-compose up
+
+notifications:
+  email: false
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
