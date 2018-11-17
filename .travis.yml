@@ -15,6 +15,7 @@ before_script:
 
 script:
   - docker-compose up
+  - travis_wait docker-compose down
 
 notifications:
   email: false
