@@ -10,6 +10,9 @@ go:
 services:
   - docker
 
+before_script:
+  - sudo /etc/init.d/mysql stop
+
 script:
   - docker-compose up
 
