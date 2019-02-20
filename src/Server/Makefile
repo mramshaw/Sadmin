@@ -1,6 +1,6 @@
 GOOS		:= linux
 GOARCH		:= amd64
-GO111MODULE := on
+GO111MODULE	:= on
 
 MAIN		:= admin_server
 

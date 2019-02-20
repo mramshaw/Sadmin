@@ -14,11 +14,13 @@ before_script:
   - sudo /etc/init.d/mysql stop
 
 script:
-  - docker-compose up
-  - travis_wait docker-compose down
+  # Wait 10 minutes before shutting down
+  - travis_wait docker-compose up
+  - docker-compose down
 
 notifications:
-  email: false
+  email:
+    on_failure: always
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)

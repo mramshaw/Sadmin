@@ -248,10 +248,10 @@ To create a co-located server entry:
 
 In this exercise, the following software versions were used:
 
-* Golang 1.11
-* Docker 18.09.0
-* docker-compose 1.23.1
-* MySQL 8.0.0
+* Golang __1.11__
+* Docker __18.09.0__
+* docker-compose __1.23.1__
+* MySQL __8.0.0__
 
 More recent versions of these components should be fine.
 

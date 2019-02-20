@@ -7,9 +7,6 @@ docker-compose.yml
 
 sql/
 
-*.swp
-
-*.yaml
 *.yml
 
 README.md
