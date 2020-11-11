@@ -1,3 +1,5 @@
+sudo: required
+
 env:
   global:
   - GO111MODULE=on

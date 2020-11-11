@@ -40,6 +40,9 @@ The contents are as follows:
     * [To Monitor](#to-monitor)
     * [To Stop](#to-stop)
 * [Web Interface](#web-interface)
+    * [Adding a security exception in Chrome](#adding-a-security-exception-in-chrome)
+    * [Password protection](#password-protection)
+    * [Create a co-located server entry](#create-a-colocated-server-entry)
 * [Versions](#versions)
 * [To Do](#to-do)
 
@@ -232,17 +235,43 @@ To query the co-located server list:
 
 	https://localhost:8200/Servers
 
-[This will probably require adding a security exception due to the self-signed certificate.]
+This will probably require adding a security exception due to the self-signed certificate.
+
+#### Adding a security exception in Chrome
+
+For the Chrome browser, this is as follows:
+
+![Chrome warning](images/Chrome_warning.png)
+
+Click on the 'Advanced' button:
+
+![Chrome advanced](images/Chrome_advanced.png)
+
+Click on the 'Proceed to localhost (unsafe)' link:
+
+![Chrome password](images/Chrome_password.png)
+
+#### Password protection
 
 The web interface is password-protected.
 
 The user is `auth_user` and the password is `secret`.
 
-To create a co-located server entry:
+![Chrome no servers](images/Chrome_no_servers.png)
+
+#### Create a co-located server entry
+
+Click on the 'Create Server Entry' link:
+
+![Chrome add server](images/Chrome_add_server.png)
+
+Now add a server (for example __test.example.com__).
+
+Another option to create a co-located server entry:
 
 	https://localhost:8200/createServer
 
-[This will also probably require adding a security exception.]
+[This may also require adding a security exception.]
 
 ## Versions
 
@@ -260,6 +289,8 @@ More recent versions of these components should be fine.
 The following items remain to be done.
 
 - [x] Travis build with Go 1.11 dependency vendoring
+- [x] Update security certificates
+- [ ] Update to latest version of Go
 - [ ] Determine requirements for Production deployment
 - [ ] Determine requirements for Database replication
 - [ ] Determine requirements for Database backup & recovery
