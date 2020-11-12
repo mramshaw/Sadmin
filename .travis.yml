@@ -7,6 +7,10 @@ env:
 language: go
 go:
   - 1.11.x
+  - 1.12.x
+  - 1.13.x
+  - 1.14.x
+  - 1.15.x
   - tip
 
 services:
@@ -17,8 +21,7 @@ before_script:
 
 script:
   # Wait 10 minutes before shutting down
-  - travis_wait docker-compose up
-  - docker-compose down
+  - travis_wait docker-compose up --abort-on-container-exit --exit-code-from golang-client
 
 notifications:
   email:

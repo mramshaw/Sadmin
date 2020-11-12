@@ -257,6 +257,8 @@ The web interface is password-protected.
 
 The user is `auth_user` and the password is `secret`.
 
+After a successful signin, the screen should be as follows:
+
 ![Chrome no servers](images/Chrome_no_servers.png)
 
 #### Create a co-located server entry
