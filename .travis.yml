@@ -20,8 +20,8 @@ before_script:
   - sudo /etc/init.d/mysql stop
 
 script:
-  # Wait 10 minutes before shutting down
-  - travis_wait docker-compose up --abort-on-container-exit --exit-code-from golang-client
+  # Start, wait 5 minutes, get logs, shut down
+  - docker-compose up -d && sleep 5m && docker-compose logs golang-server && docker-compose logs golang-client && docker-compose down
 
 notifications:
   email:
