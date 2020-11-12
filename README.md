@@ -292,7 +292,7 @@ The following items remain to be done.
 
 - [x] Travis build with Go 1.11 dependency vendoring
 - [x] Update security certificates
-- [ ] Update to latest version of Go
+- [x] Update to latest version of Go (__1.15.4__)
 - [ ] Determine requirements for Production deployment
 - [ ] Determine requirements for Database replication
 - [ ] Determine requirements for Database backup & recovery

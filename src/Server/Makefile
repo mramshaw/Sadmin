@@ -25,10 +25,10 @@ lint:		fmt
 		GOOS=$(GOOS) GOARCH=$(GOARCH) golint -set_exit_status ./test/*.go
 
 vet:		lint
-		GOOS=$(GOOS) GOARCH=$(GOARCH) GO111MODULE=$(GO111MODULE) go tool vet *.go
-		GOOS=$(GOOS) GOARCH=$(GOARCH) GO111MODULE=$(GO111MODULE) go tool vet ./application/*.go
-		GOOS=$(GOOS) GOARCH=$(GOARCH) GO111MODULE=$(GO111MODULE) go tool vet ./servers/*.go
-		GOOS=$(GOOS) GOARCH=$(GOARCH) GO111MODULE=$(GO111MODULE) go tool vet ./test/*.go
+		GOOS=$(GOOS) GOARCH=$(GOARCH) GO111MODULE=$(GO111MODULE) go vet *.go
+		GOOS=$(GOOS) GOARCH=$(GOARCH) GO111MODULE=$(GO111MODULE) go vet ./application/*.go
+		GOOS=$(GOOS) GOARCH=$(GOARCH) GO111MODULE=$(GO111MODULE) go vet ./servers/*.go
+		GOOS=$(GOOS) GOARCH=$(GOARCH) GO111MODULE=$(GO111MODULE) go vet ./test/*.go
 
 init:		vet
 		@rm -f go.mod

@@ -7,7 +7,7 @@ services:
 
     golang-client:
         build: .
-        image: mramshaw4docs/golang-sadmin-client:1.11
+        image: mramshaw4docs/golang-sadmin-client:1.15.4
         networks:
           servernet:
             aliases:
@@ -35,7 +35,7 @@ services:
 
     golang-server:
         build: .
-        image: mramshaw4docs/golang-sadmin-server:1.11
+        image: mramshaw4docs/golang-sadmin-server:1.15.4
         networks:
           servernet:
             aliases:
