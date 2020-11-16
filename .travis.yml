@@ -15,4 +15,5 @@ notifications:
     on_failure: always
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - cat ./src/Server/coverage.txt ./src/Client/coverage.txt >> go_coverage.txt
+  - bash <(curl -s https://codecov.io/bash) -f go_coverage.txt
