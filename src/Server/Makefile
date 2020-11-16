@@ -24,17 +24,18 @@ lint:		fmt
 		GOOS=$(GOOS) GOARCH=$(GOARCH) golint -set_exit_status ./servers/*.go
 		GOOS=$(GOOS) GOARCH=$(GOARCH) golint -set_exit_status ./test/*.go
 
-vet:		lint
+init:		lint
+		@rm -f go.mod
+		GOOS=$(GOOS) GOARCH=$(GOARCH) GO111MODULE=$(GO111MODULE) go mod init admin-server
+		GOOS=$(GOOS) GOARCH=$(GOARCH) GO111MODULE=$(GO111MODULE) go mod download
+
+vet:		init
 		GOOS=$(GOOS) GOARCH=$(GOARCH) GO111MODULE=$(GO111MODULE) go vet *.go
 		GOOS=$(GOOS) GOARCH=$(GOARCH) GO111MODULE=$(GO111MODULE) go vet ./application/*.go
 		GOOS=$(GOOS) GOARCH=$(GOARCH) GO111MODULE=$(GO111MODULE) go vet ./servers/*.go
 		GOOS=$(GOOS) GOARCH=$(GOARCH) GO111MODULE=$(GO111MODULE) go vet ./test/*.go
 
-init:		vet
-		@rm -f go.mod
-		GOOS=$(GOOS) GOARCH=$(GOARCH) GO111MODULE=$(GO111MODULE) go mod init admin-server
-
-test:		init
+test:		vet
 		GOOS=$(GOOS) GOARCH=$(GOARCH) GO111MODULE=$(GO111MODULE) go test -coverpkg admin-server,admin-server/application,admin-server/servers -coverprofile=coverage.txt -covermode=atomic -v ./...
 		GOOS=$(GOOS) GOARCH=$(GOARCH) GO111MODULE=$(GO111MODULE) go tool cover -html=coverage.txt -o coverage.html
 

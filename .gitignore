@@ -1,5 +1,9 @@
 compiled/
 src/Client/coverage.html
 src/Client/coverage.txt
+src/Client/go.mod
+src/Client/go.sum
 src/Server/coverage.html
 src/Server/coverage.txt
+src/Server/go.mod
+src/Server/go.sum
